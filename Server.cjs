@@ -4,7 +4,13 @@ const formModel= require('./FormModel.cjs')
 
 const app = express();
 
-app.use(cors())
+app.use(cors(
+    {
+        origin: ["https://stagevibe-frontend.vercel.app/"],
+        methods: ["POST", "GET","DELETE"],
+        credentials: true
+    }
+))
 app.use(express.json())
 
 app.get('',async(req,res)=>{
